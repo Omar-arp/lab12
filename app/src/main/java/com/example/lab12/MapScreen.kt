@@ -57,6 +57,12 @@ fun MapScreen() {
         LatLng(-16.399299, -71.536721)
     )
 
+    val rutaEjemplo = listOf(
+        LatLng(-16.433415, -71.5442652),  // JLByR
+        LatLng(-16.4205151, -71.4945209), // Paucarpata
+        LatLng(-16.3524187, -71.5675994)  // Zamacola
+    )
+
     // Cargar ícono UNA VEZ de forma segura
     LaunchedEffect(Unit) {
         iconState.value = loadBitmapDescriptor(context)
@@ -104,6 +110,12 @@ fun MapScreen() {
                 strokeColor = Color.Red,
                 fillColor = Color.Blue,
                 strokeWidth = 5f
+            )
+
+            Polyline(
+                points = rutaEjemplo,
+                color = Color.Black,
+                width = 5f
             )
         }
     }
