@@ -15,6 +15,12 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        // API key como campo para Kotlin
+        val apiKey = project.findProperty("MAPS_API_KEY")?.toString() ?: ""
+        buildConfigField("String", "MAPS_API_KEY", "\"$apiKey\"")
+        manifestPlaceholders["MAPS_API_KEY"] = apiKey
+
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
